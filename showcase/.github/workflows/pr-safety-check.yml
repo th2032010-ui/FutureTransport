@@ -1,0 +1,17 @@
+name: PR safety check
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    # ci-workflows v1.0.0-initial
+    uses: img2threejs/ci-workflows/.github/workflows/node-quality.yml@4b7a0612d2c52815792124a18ae3f9032a4f0a88
+    with:
+      node-version: "20"
+      checkout-fetch-depth: "0"
+      post-build-check: showcase-safety
