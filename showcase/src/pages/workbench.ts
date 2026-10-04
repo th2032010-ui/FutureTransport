@@ -169,22 +169,6 @@ export function renderWorkbench(
 
   // Standalone product experiences share the archive card and filters while keeping their viewer.
   const archiveEntries = [
-    {
-      id: 'iphone-duo',
-      title: 'iPhone Duo — A Whole New Dimension',
-      subjectClass: 'object',
-      blurb: 'A folding-phone showcase with a continuous display, six finishes and two release sequences. '
-        + 'Inspect the model and explore the img2threejs workflow behind the experience.',
-      referenceImage: `${import.meta.env.BASE_URL}iphone-duo/showcase-preview.webp`,
-      imageAlt: 'iPhone Duo showcase with the continuous display open',
-      imageLabel: 'Showcase preview',
-      href: `${import.meta.env.BASE_URL}iphone-duo.html#explore`,
-      status: 'final',
-      generationLabel: 'Product Study',
-      generatedWith: 'img2threejs · Product Study',
-      referenceLabel: 'Measured Model',
-      linkLabel: 'Open Live 3D Showcase',
-    },
     ...demos.map((demo) => ({
       ...demo,
       imageAlt: `Reference used to reconstruct ${demo.title}`,

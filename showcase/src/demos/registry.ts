@@ -168,6 +168,48 @@ const authored: CatalogEntry[] = [
       };
     },
   },
+  {
+    id: 'e-sphere-rail-one',
+    updatedAt: '2026-10-04',
+    title: 'E-Sphere Rail One — Green Smart Bullet Train',
+    subjectClass: 'object',
+    blurb:
+      'High-speed autonomous maglev train consist (350 km/h) reconstructed in procedural Three.js from the official concept poster: ' +
+      'aerodynamic bullet nose, 360° radar/LiDAR sensor turret, solar roof panels, panoramic observation lounge, rotating luxury leather seats, and elevated maglev guideway.',
+    referenceImage: `${BASE}references/e-sphere-rail-one.png`,
+    referenceKind: 'image',
+    sourcePath: 'src/demos/e-sphere-rail-one/createESphereRailOneModel.ts',
+    sourceUrl: `${REPO}/src/demos/e-sphere-rail-one/createESphereRailOneModel.ts`,
+    generatedWith: 'img2threejs v2.0',
+    author: 'FutureTransport AI',
+    authorUrl: 'https://github.com/th2032010-ui/FutureTransport',
+    status: 'final',
+    cameraPosition: [-28.0, 11.0, 26.0],
+    cameraTarget: [0, 2.6, 0],
+    cameraFov: 38,
+    turntable: true,
+    turntableSpeed: 6,
+    environmentIntensity: 1.25,
+    exposure: 1.1,
+    toneMapping: 'aces',
+    loadRuntime: async () => {
+      const [THREE, { createESphereRailOneModel, createESphereRailOneLookDevLights }] = await Promise.all([
+        import('three'),
+        import('./e-sphere-rail-one/createESphereRailOneModel'),
+      ]);
+      return {
+        build: (scene) => {
+          scene.background = new THREE.Color(0xf0f7ff);
+          scene.fog = new THREE.Fog(0xf0f7ff, 35, 95);
+          const group = createESphereRailOneModel({ shadows: true, includeTrack: true });
+          scene.add(group);
+          const lights = createESphereRailOneLookDevLights();
+          scene.add(lights);
+          return group;
+        },
+      };
+    },
+  },
  ];
 
 /**

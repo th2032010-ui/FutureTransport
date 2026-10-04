@@ -10,7 +10,6 @@ export default defineConfig({
     rollupOptions: {
       input: {
         index: 'index.html',
-        iphoneDuo: 'iphone-duo.html',
       },
     },
   },
