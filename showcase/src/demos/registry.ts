@@ -644,7 +644,6 @@ const authored: CatalogEntry[] = [
     },
   },
   {
-  {
     id: 'starship-super-heavy',
     updatedAt: '2026-09-03',
     title: 'Starship + Super Heavy',
