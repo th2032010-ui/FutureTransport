@@ -210,6 +210,48 @@ const authored: CatalogEntry[] = [
       };
     },
   },
+  {
+    id: 'aether-x1',
+    updatedAt: '2026-10-04',
+    title: 'Aether X-1 — Autonomous Electric Hypercar',
+    subjectClass: 'object',
+    blurb:
+      'High-performance autonomous electric hypercar (4.8m x 2.0m) built in procedural Three.js: ' +
+      'aerodynamic shark-nose fuselage, active rear wing, seamless teardrop glass canopy, royal blue turbine aero wheels, and full-width cyber LED lightbars.',
+    referenceImage: `${BASE}references/e-sphere-one.png`,
+    referenceKind: 'model',
+    sourcePath: 'src/demos/aether-x1/createAetherX1.ts',
+    sourceUrl: `${REPO}/src/demos/aether-x1/createAetherX1.ts`,
+    generatedWith: 'img2threejs v2.0',
+    author: 'FutureTransport AI',
+    authorUrl: 'https://github.com/th2032010-ui/FutureTransport',
+    status: 'final',
+    cameraPosition: [-4.8, 2.2, 4.6],
+    cameraTarget: [0, 0.7, 0],
+    cameraFov: 35,
+    turntable: true,
+    turntableSpeed: 10,
+    environmentIntensity: 1.25,
+    exposure: 1.05,
+    toneMapping: 'aces',
+    loadRuntime: async () => {
+      const [THREE, { createAetherX1, createAetherX1LookDevLights }] = await Promise.all([
+        import('three'),
+        import('./aether-x1/createAetherX1'),
+      ]);
+      return {
+        build: (scene) => {
+          scene.background = new THREE.Color(0xf0f5fa);
+          scene.fog = new THREE.Fog(0xf0f5fa, 14, 40);
+          const group = createAetherX1({ shadows: true });
+          scene.add(group);
+          const lights = createAetherX1LookDevLights();
+          scene.add(lights);
+          return group;
+        },
+      };
+    },
+  },
  ];
 
 /**
