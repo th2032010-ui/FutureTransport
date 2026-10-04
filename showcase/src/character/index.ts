@@ -17,8 +17,6 @@
 export { createStylizedCharacterIR } from './archetypes/stylized/index.js';
 export { buildSkeleton } from './rig/skeleton/index.js';
 export { buildRigidSemanticWeights } from './rig/weights/index.js';
-export { compileCharacterActions } from './runtime/animation.js';
 
 export type { SkeletonBuildResult } from './rig/skeleton/index.js';
-export type { CharacterActionSpec, CharacterAnimationController } from './runtime/animation.js';
 export type { CharacterIR, RigJoint } from './ir/character-ir.js';
